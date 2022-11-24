@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Index-page
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container ">
+    <form action="/" method="post" class="my-5">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter URL</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your URL..." name="url">
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Shorten It</button>
+      </form>
+
+      <p>Your URL : <a href="{{ short_url_link }}" class="text-dark">{{ short_url_link }}</a></p>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,4 @@
+1. Title = NZPUG-Auckland: Problem-solving, perspectives, programming, and presentation, Time = 05:30:00
+2. Title = Smart Iterator Challenge (week 3), Time = 00:00:00
+3. Title = enterPy 2022, Time = 00:00:00
+4. Title = Python at Scale, Time = 00:00:00

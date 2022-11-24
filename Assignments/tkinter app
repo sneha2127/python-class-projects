@@ -1,0 +1,49 @@
+from tkinter import *
+import pyttsx3
+
+
+engine = pyttsx3.init()
+window = Tk()
+
+window.title("First Tkinter app")
+
+window.geometry("600x600")
+
+window.iconbitmap("old thunderbird v2.ico")
+
+text_lbl = Label(window,text="Welcome to alexa text to speech converter app")
+text_lbl.pack(pady=10) 
+
+text_lbl = Label(window,text="Enter your text in the box below")
+text_lbl.pack(pady=10) 
+
+text = Text(window)
+text.pack(pady=10)
+
+# Set Property to female
+def ListenTheVoice():
+    
+    voice_list = engine.getProperty("voices")
+    engine.setProperty('voice',voice_list[1].id)
+    voice_text = text.get(1.0,END)
+    # print(voice_text)
+    engine.say(voice_text)
+    engine.runAndWait()
+
+say_btn = Button(window,text="Listen the Voice",command=ListenTheVoice)
+say_btn.pack(pady=10)
+
+def SaveMP3File():
+  
+    voice_list = engine.getProperty("voices")
+    engine.setProperty('voice',voice_list[1].id)
+    voice_text = text.get(1.0,END)
+    engine.save_to_file(voice_text, "demo.mp3")
+    engine.runAndWait()
+
+
+
+download_btn = Button(window,text="Download the Voice",command=SaveMP3File)
+download_btn.pack(pady=10)
+
+window.mainloop()

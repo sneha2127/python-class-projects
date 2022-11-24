@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container py-5">
+        <h3>Add your task right now</h3>
+
+        <form class="py-5" action="/" method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="font-weight-bold">Add a task</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your task" name="task">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+          <h3>Your Tasks</h3>
+          <hr class="mb-5">
+
+
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Task Title</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for task in tasks %}
+                <tr>
+                  <th scope="row">{{loop.index}}</th>
+                  <td>{{task.task_name}}</td>
+                  <td>
+                    <a href="/edit/{{task.id}}" type="button" class="btn btn-success">Edit</a>
+                    <a href="/delete/{{task.id}}" type="button" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+
+
+          <a href="/delete-all" type="button" class="btn btn-danger mt-3">Delete All</a>
+          
+    </div>
+
+    
+    {% endblock %}
